@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for monitor-binext on 2025-11-25T12:39:14Z
+# fly.toml app configuration file generated for monitor-binext on 2025-11-25T12:51:25Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -6,19 +6,12 @@
 app = 'monitor-binext'
 primary_region = 'fra'
 
-[build]
-  image = 'louislam/uptime-kuma:2'
-
-[[mounts]]
-  source = 'kuma_data'
-  destination = '/app/data'
-
 [http_service]
   internal_port = 3001
   force_https = true
-  auto_stop_machines = 'off'
+  auto_stop_machines = 'stop'
   auto_start_machines = true
-  min_machines_running = 1
+  min_machines_running = 0
   processes = ['app']
 
 [[vm]]
